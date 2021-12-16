@@ -1,11 +1,15 @@
-# hackerdrunk
+# HAckerDrunk
 
 
-This project was generated with [superplate](https://github.com/pankod/superplate).
+A drinking game with bugs 🤢
 
 ## Getting Started
 
-superplate is a Next.js all-in-one project generator. Create your project with the tools you need without spending hours on setting them up.
+Built on next.js.
+Clone the repo and 
+```bash
+    npm i
+```
 
 ## Available Scripts
 
