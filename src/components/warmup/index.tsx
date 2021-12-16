@@ -4,20 +4,22 @@ import { Container } from "react-bootstrap";
 import { Button } from "@components";
 import Image from "next/image";
 
-export const Main: React.FC = () => {
+export const WarmupMain: React.FC = () => {
   return (
-    <div className="text-center py-4" style={{ backgroundColor: "#282c34" }}>
+    <div className="text-center py-4 flex-grow" style={{ backgroundColor: "#282c34" }}>
       <Container>
-        <h1 className="display-2 text-white">Pronto alla sfida?</h1>
         <p className="lead text-white">
-          <Image src="/ballmerpeak.png" layout="responsive" width="538" height="312"/>
+          Ma prima uno shottino di riscaldamento!
         </p>
+        <div className="mb-5">
+        <Image src="/shot-glass.png" height="200" width="200"/>
+        </div>
         <Button
           variant="primary"
           size="lg"
-          href="/warmup"
+          href="/game"
         >
-          Inizia
+          Fatto!
         </Button>
       </Container>
     </div>

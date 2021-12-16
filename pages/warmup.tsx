@@ -1,14 +1,15 @@
 import React from "react";
 
 import { Header, Main, Footer, Cards } from "@components";
+import { WarmupMain } from "@components/warmup";
 
-const Home: React.FC = () => {
+const Warmup: React.FC = () => {
   return (
     <div className="d-flex flex-column min-vh-100">
       <Header />
-      <Main />
+      <WarmupMain />
     </div>
   );
 };
 
-export default Home;
+export default Warmup;
