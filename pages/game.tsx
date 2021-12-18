@@ -131,7 +131,7 @@ export default class Game extends React.Component {
 
   }
 
-  onEditorChange = (value: string, event: any) => {
+  onEditorChange = (value: string | undefined, event: any) => {
     this.setState( (state, props) => ({ code:value }))
   }  
 
