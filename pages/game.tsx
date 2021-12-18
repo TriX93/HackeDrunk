@@ -14,6 +14,7 @@ export default class Game extends React.Component {
       description: string[],
       testing?: boolean,
       functionName: string,
+      initialCode: string,
       tests: {
         input: any,
         output: string,
@@ -22,7 +23,7 @@ export default class Game extends React.Component {
         pass: boolean
       }[]
     },
-    code?: '' 
+    code?: string
   }
 
 
@@ -32,28 +33,30 @@ export default class Game extends React.Component {
     super(props);
     this.state = {
       quiz: {
-        title: "Fizz Buzz",
-        description: ["megaspiegone", "cosmico"],
+        title: "Staircase",
+        description: ["Dice un vecchio detto: \"Il mondo è fatto a scale, c'è chi le scende e chi le sale\". C'è però un terzo gruppo di persone: chi le scale le costruisce.", "La funzione staircase(n) ritorna una stringa contenente la rappresentazione di una scala composta da n gradini.", "Esempio: staircase(3) costruisce una scala di tre gradini.", "   #\n  ##\n ###\n####"],
         testing: false,
-        functionName: "fizzBuzz",
+        functionName: "staircase",
+        initialCode: "function staircase(n) {\n\t// insert code here\n}",
         tests: [
           {
             input: 1,
-            output: "1",
+            output: "#",
             computed: null,
-            run: true,
-            pass: true
+            run: false,
+            pass: false
           },
           {
             input: 3,
-            output: ["1","2","Fizz"].join("\n"),
+            output: ["   #","  ##"," ###", "####"].join("\n"),
             computed: null,
-            run: true,
+            run: false,
             pass: false
           }
         ]
       }
     };
+    this.state.code = this.state.quiz.initialCode;
   }
 
   handleEditorDidMount = (editor:any, monaco: any) => {
@@ -139,16 +142,17 @@ export default class Game extends React.Component {
         <div className="container-fluid">
           <div className="row flex-grow">
             
-            <div className="col-8">
+            <div className="col-8 editorContainer">
               <Editor height="100%" 
+              defaultValue={this.state.quiz.initialCode}
               onChange={this.onEditorChange}
             defaultLanguage="javascript"
             />
             </div>
-            <div className="col-4">
+            <div className="col-4 quizExplain">
               <h1>{this.state.quiz.title}</h1>
               {this.state.quiz.description.map( desc => {
-                return <p>{desc}</p>
+                return <pre className="preformatted">{desc}</pre>
               } ) }
 
               <div className="mt-4">
